@@ -13,3 +13,6 @@
       ios_command:
           command:
              - show version
+    - name: adding a new task
+      server_config:
+           
