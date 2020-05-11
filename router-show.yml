@@ -1,0 +1,15 @@
+---
+-
+  name: Test connectivity
+  hosts: routers
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: Show version command
+      ios_config:
+          lines:
+             - username test1 password test1
+    - name: show comamnds
+      ios_command:
+          command:
+             - show version
