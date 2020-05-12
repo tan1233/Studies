@@ -1,5 +1,5 @@
 -
-  name: Test connectivity
+  name: Router show commands
   hosts: all
   gather_facts: no
   connection: local
@@ -7,5 +7,11 @@
      - name: Show version command
        ios_command:
          commands:
-            - show version
-#            - show interfaces
+#            - show version
+            - sho ip int brief
+#       register: version
+       register: interfaces
+     - name: Display result of show version
+       debug:
+#         var: version
+         var: interfaces
