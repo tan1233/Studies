@@ -1,13 +1,13 @@
 ---
 -
-  name: Change the router name
+  name: This file displays the router name and IOS, changes the router name, and then displays the new router name
   hosts: router
   gather_facts: false
   connection: local
   tasks:
     - name: Get config for Router
       ios_facts:
-          gather_subset: '!all'
+          gather_subset: "all"
 
     - name: Display the router details
       debug:
@@ -20,7 +20,7 @@
 
     - name: Get config for Router
       ios_facts:
-          gather_subset: '!all'
+          gather_subset: "all"
 
     - name: Get the changed router hostname
       debug:
