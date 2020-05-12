@@ -1,7 +1,7 @@
 ---
 -
-  name: Test connectivity
-  hosts: router-us
+  name: Configure a router
+  hosts: router
   gather_facts: no
   connection: local
   tasks:
@@ -11,12 +11,16 @@
              - username test1 password test1
              - interface loopback 0
              - ip add 1.1.1.1 255.255.255.255
-
+             - hostname AnSiBlE
+      register: var1
+    - name: Display results of above
+      debug:
+        var: var1
     - name: add another set of commands
       ios_config:
           lines:
              - username test2 password test2
-
-
-#- name: show comamnds
-#      ios_command:
+      register: var2
+    - name: Display results of above
+      debug:
+        var: var2
