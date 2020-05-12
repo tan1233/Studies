@@ -13,5 +13,5 @@
        register: interfaces
      - name: Display result of show version
        debug:
-#         var: version
+#         var: version1
          var: interfaces
