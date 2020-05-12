@@ -1,17 +1,22 @@
 -
   name: Router show commands
-  hosts: all
+  hosts: router
   gather_facts: no
   connection: local
   tasks:
      - name: Show version command
        ios_command:
          commands:
-#            - show version
             - sho ip int brief
-#       register: version
        register: interfaces
      - name: Display result of show version
        debug:
 #         var: version1
          var: interfaces
+     - name: Configure router name
+       ios_config:
+         lines:
+           - hostname Ansible
+       register: var1
+       debug:
+         var: var1
