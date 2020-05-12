@@ -1,0 +1,6 @@
+-
+    name: Test connectivity.
+    hosts: router
+    tasks:
+      - name: Ping Test
+        ping:

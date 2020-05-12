@@ -1,0 +1,22 @@
+---
+-
+  name: Test connectivity
+  hosts: router-us
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: add a config line command
+      ios_config:
+          lines:
+             - username test1 password test1
+             - interface loopback 0
+             - ip add 1.1.1.1 255.255.255.255
+
+    - name: add another set of commands
+      ios_config:
+          lines:
+             - username test2 password test2
+
+
+#- name: show comamnds
+#      ios_command:
