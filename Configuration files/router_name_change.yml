@@ -1,0 +1,27 @@
+---
+-
+  name: Change the router name
+  hosts: router
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: Get config for Router
+      ios_facts:
+          gather_subset: '!all'
+
+    - name: Display the router details
+      debug:
+        msg: "The router name is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
+
+    - name: Change the hostname of the router
+      ios_config:
+          lines:
+             - hostname AnSiBlE
+
+    - name: Get config for Router
+      ios_facts:
+          gather_subset: '!all'
+
+    - name: Get the changed router hostname
+      debug:
+        msg: "The router name is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
